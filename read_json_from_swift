@@ -1,0 +1,12 @@
+#!/usr/bin/env xcrun swift -F Rome
+
+
+import SwiftyJSON
+import Foundation
+
+let location = NSString(string:"./settings.json").stringByExpandingTildeInPath
+let fileContent = NSData(contentsOfFile: location)!  
+let json = JSON(data: fileContent)
+print(json["metadata"]["responseInfo"]["status"].intValue)
+print ( json["metadata"]["responseInfo"]["developerMessage"].stringValue)
+
